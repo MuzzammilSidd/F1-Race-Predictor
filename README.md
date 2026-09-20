@@ -178,7 +178,7 @@ The Spanish GP was then supplied only with information available before the race
 
 <p>
 
-<strong>Driver \&nbsp;•\&nbsp; Constructor \&nbsp;•\&nbsp; Circuit \&nbsp;•\&nbsp; Grid \&nbsp;•\&nbsp; Qualifying</strong>
+<strong>Driver • Constructor • Circuit • Grid • Qualifying</strong>
 
 </p>
 
