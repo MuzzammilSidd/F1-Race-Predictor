@@ -1014,9 +1014,21 @@ not a guaranteed race-result generator.
 
 
 
-<p><strong>Muzzammil Siddiqi</strong></p>
+<p>
+
+<strong>Muzzammil Siddiqi</strong>
+
+</p>
 
 
 
-<p><a href="https://github.com/MuzzammilSidd">GitHub Profile</a></p><img src="https://capsule-render.vercel.app/api?type=waving\&color=87CEFA\&height=100\&section=footer">
+<p>
+
+<a href="https://github.com/MuzzammilSidd">GitHub Profile</a>
+
+</p>
+
+
+
+<img src="https://capsule-render.vercel.app/api?type=waving\&color=87CEFA\&height=100\&section=footer">
 
