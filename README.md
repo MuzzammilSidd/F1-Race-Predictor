@@ -1010,7 +1010,7 @@ not a guaranteed race-result generator.
 
 
 
-<h2>🏎️ Built with Python \& Machine Learning</h2>
+<h2>🏎️ Built with Python \&amp; Machine Learning</h2>
 
 
 
@@ -1027,10 +1027,6 @@ not a guaranteed race-result generator.
 <a href="https://github.com/MuzzammilSidd">GitHub Profile</a>
 
 </p>
-
-
-
-<br>
 
 
 
