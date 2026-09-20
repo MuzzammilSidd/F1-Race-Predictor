@@ -6,7 +6,7 @@
 
 
 
-<h3>Machine Learning for Formula 1 Race Finishing Positions</h3>
+<h3>Machine Learning Model For Predicting Formula 1 Race Finishing Positions</h3>
 
 
 
@@ -250,7 +250,7 @@ The actual race result was kept hidden until after the prediction was generated.
 
 <sub>
 
-NOTE: The four race retirements in the actual 2026 Spanish GP were excluded from this particular evaluation.
+<strong>NOTE:</strong> The four race retirements in the actual 2026 Spanish GP were excluded from this particular evaluation.
 
 </sub>
 
