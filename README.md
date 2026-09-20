@@ -1,12 +1,34 @@
+<div align="center">
+
+
+
 \# 🏎️ F1 Race Predictor
 
 
 
-A machine-learning project that predicts Formula 1 race finishing positions using pre-race information and historical F1 performance data.
+\### Machine Learning for Formula 1 Race Finishing Positions
 
 
 
-The project uses a Random Forest regression model to estimate how many positions each driver is expected to gain or lose relative to their starting grid position.
+Predicting race performance from qualifying, grid position, driver history, constructor performance, and circuit history.
+
+
+
+<br>
+
+
+
+!\[Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+
+!\[scikit-learn](https://img.shields.io/badge/scikit--learn-Random%20Forest-F7931E?style=for-the-badge\&logo=scikit-learn\&logoColor=white)
+
+!\[pandas](https://img.shields.io/badge/pandas-Data%20Analysis-150458?style=for-the-badge\&logo=pandas\&logoColor=white)
+
+!\[Status](https://img.shields.io/badge/Status-Working-2ea44f?style=for-the-badge)
+
+
+
+</div>
 
 
 
@@ -14,23 +36,19 @@ The project uses a Random Forest regression model to estimate how many positions
 
 
 
-\## 🎯 Project Objective
+\## ⚡ Overview
 
 
 
-The goal is to build a machine-learning pipeline that can predict the finishing order of an F1 race using information available before the race begins.
+\*\*F1 Race Predictor\*\* is a machine-learning project that predicts the finishing order of a Formula 1 race using information available before the race begins.
 
 
 
-The model does not simply predict finishing position directly.
+Instead of predicting finishing position directly, the model predicts:
 
 
 
-Instead, it predicts:
-
-
-
-\*\*Position Change = Grid Position − Finishing Position\*\*
+> \*\*Position Change = Grid Position − Finishing Position\*\*
 
 
 
@@ -38,43 +56,7 @@ The predicted position change is then converted into an estimated finishing posi
 
 
 
-\---
-
-
-
-\## 📊 Data
-
-
-
-Historical Formula 1 race data was collected for:
-
-
-
-\- 2022
-
-\- 2023
-
-\- 2024
-
-\- 2025
-
-\- 2026 through the Italian Grand Prix
-
-
-
-The pre-Spain training dataset contains:
-
-
-
-\- \*\*2,124 driver-race records\*\*
-
-\- \*\*105 races\*\*
-
-\- \*\*13 model features\*\*
-
-
-
-The Spanish Grand Prix was deliberately excluded from the training data for a blind historical validation experiment.
+The final model uses a \*\*Random Forest Regressor\*\* trained on historical Formula 1 data.
 
 
 
@@ -82,169 +64,7 @@ The Spanish Grand Prix was deliberately excluded from the training data for a bl
 
 
 
-\## 🧠 Features
-
-
-
-The model uses 13 features derived from qualifying, driver performance, constructor performance and circuit history.
-
-
-
-\### Pre-race features
-
-
-
-\- Grid position
-
-\- Qualifying position
-
-\- Qualifying-to-grid gap
-
-
-
-\### Recent performance
-
-
-
-\- Recent average finishing position
-
-\- Recent finishing-position standard deviation
-
-\- Recent average qualifying position
-
-\- Recent average qualifying-to-finish change
-
-\- Recent average constructor finishing position
-
-\- Recent average constructor qualifying position
-
-
-
-\### Circuit and position-change history
-
-
-
-\- Driver circuit history
-
-\- Circuit average position change
-
-\- Driver circuit average position change
-
-\- Recent average position change
-
-
-
-Historical features are calculated using previous races so that information from the current race is not used as an input.
-
-
-
-\---
-
-
-
-\## 🤖 Model
-
-
-
-Several regression models were evaluated during development.
-
-
-
-The final production model is:
-
-
-
-\*\*Random Forest Regressor\*\*
-
-
-
-Configuration:
-
-
-
-\- Trees: 400
-
-\- Maximum depth: 8
-
-\- Maximum features: sqrt
-
-\- Random state: 42
-
-\- Minimum samples per leaf: 1
-
-\- Minimum samples per split: 2
-
-
-
-Random Forest was selected based on the chronological validation experiments performed during development.
-
-
-
-\---
-
-
-
-\## 🧪 Blind Spanish GP Test
-
-
-
-To test the model on a completely unseen race, the model was trained only on races through the 2026 Italian Grand Prix.
-
-
-
-The 2026 Spanish Grand Prix was then supplied only with information available before the race:
-
-
-
-\- Driver
-
-\- Constructor
-
-\- Circuit
-
-\- Grid position
-
-\- Qualifying position
-
-
-
-The actual Spanish Grand Prix race result was not provided to the model.
-
-
-
-\### Result
-
-
-
-Excluding the four drivers who retired from the race:
-
-
-
-| Metric | Result |
-
-|---|---:|
-
-| Within ±1 position | \*\*55.6%\*\* |
-
-| Within ±2 positions | \*\*77.8%\*\* |
-
-| Mean Absolute Error | \*\*1.83 positions\*\* |
-
-| RMSE | \*\*2.37 positions\*\* |
-
-| Exact position | \*\*11.1%\*\* |
-
-
-
-This was a single blind historical test and should not be interpreted as the model's general long-term accuracy.
-
-
-
-\---
-
-
-
-\## 🔄 Prediction Pipeline
+\## 🧠 How It Works
 
 
 
@@ -252,37 +72,237 @@ This was a single blind historical test and should not be interpreted as the mod
 
 Historical F1 Data
 
-&#x20;       ↓
+&#x20;       │
 
-Data Cleaning
+&#x20;       ▼
 
-&#x20;       ↓
+&#x20;  Data Cleaning
 
-Feature Engineering
+&#x20;       │
 
-&#x20;       ↓
+&#x20;       ▼
 
-Historical Driver / Constructor / Circuit Features
+&#x20;Feature Engineering
 
-&#x20;       ↓
+&#x20;       │
 
-Random Forest Training
+&#x20;       ▼
 
-&#x20;       ↓
+Driver / Constructor / Circuit History
+
+&#x20;       │
+
+&#x20;       ▼
+
+&#x20; Random Forest Model
+
+&#x20;       │
+
+&#x20;       ▼
 
 Qualifying + Grid Information
 
-&#x20;       ↓
+&#x20;       │
 
-Predicted Position Change
+&#x20;       ▼
 
-&#x20;       ↓
+&#x20;Predicted Position Change
+
+&#x20;       │
+
+&#x20;       ▼
 
 Estimated Finishing Position
 
-&#x20;       ↓
+&#x20;       │
 
-Predicted Race Order
+&#x20;       ▼
+
+&#x20;  Predicted Race Order
+
+📊 Blind Test — 2026 Spanish GP
+
+
+
+One of the main goals of the project was to test the model on a race it had never seen during training.
+
+
+
+For this experiment:
+
+
+
+Training data ended at the 2026 Italian Grand Prix
+
+The Spanish Grand Prix was excluded from training
+
+Only pre-race information was supplied
+
+The actual Spanish race result was hidden from the model
+
+The prediction was generated before comparing it with the real result
+
+Results
+
+
+
+Using the evaluation convention that excludes the four drivers who retired:
+
+
+
+Metric	Result
+
+Within ±1 position	55.6%
+
+Within ±2 positions	77.8%
+
+Mean Absolute Error	1.83 positions
+
+RMSE	2.37 positions
+
+Exact position	11.1%
+
+
+
+77.8% of classified drivers were predicted within two finishing positions of their actual result.
+
+
+
+This is a single blind historical test and should not be interpreted as the model's general long-term accuracy.
+
+
+
+🏁 Model
+
+
+
+The final production model is a:
+
+
+
+Random Forest Regressor
+
+Parameter	Value
+
+Trees	400
+
+Maximum Depth	8
+
+Maximum Features	sqrt
+
+Minimum Samples per Leaf	1
+
+Minimum Samples per Split	2
+
+Random State	42
+
+
+
+Random Forest was selected after comparing multiple regression approaches using chronological validation.
+
+
+
+🔬 Features
+
+
+
+The model uses 13 features covering pre-race information and historical performance.
+
+
+
+Qualifying \& Grid
+
+Grid position
+
+Qualifying position
+
+Qualifying-to-grid gap
+
+Recent Driver \& Constructor Performance
+
+Recent average finishing position
+
+Recent finishing-position standard deviation
+
+Recent average qualifying position
+
+Recent average qualifying-to-finish change
+
+Recent average constructor finishing position
+
+Recent average constructor qualifying position
+
+Circuit \& Position-Change History
+
+Driver circuit history
+
+Circuit average position change
+
+Driver circuit average position change
+
+Recent average position change
+
+
+
+Historical features are calculated using previous races, preventing information from the current race from being used as an input.
+
+
+
+📚 Dataset
+
+
+
+The project uses historical Formula 1 race data covering:
+
+
+
+2022
+
+2023
+
+2024
+
+2025
+
+2026 through the Italian Grand Prix
+
+Training Dataset
+
+
+
+2,124 driver-race records
+
+
+
+105 races
+
+
+
+13 model features
+
+
+
+The Spanish Grand Prix was intentionally excluded from the training data for the blind-test experiment.
+
+
+
+🛠️ Tech Stack
+
+Technology	Purpose
+
+Python	Core programming
+
+pandas	Data processing
+
+NumPy	Numerical operations
+
+scikit-learn	Machine learning
+
+Random Forest	Final prediction model
+
+Git	Version control
+
+GitHub	Project hosting
 
 📁 Project Structure
 
@@ -322,11 +342,19 @@ F1-Race-Predictor/
 
 └── README.md
 
-🚀 How to Run
+🚀 Run the Project
 
-1\. Create and activate a virtual environment
+1\. Clone the repository
+
+git clone https://github.com/MuzzammilSidd/F1-Race-Predictor.git
+
+cd F1-Race-Predictor
+
+2\. Create a virtual environment
 
 python -m venv .venv
+
+3\. Activate it
 
 
 
@@ -336,19 +364,19 @@ Windows:
 
 .venv\\Scripts\\activate
 
-2\. Install dependencies
+4\. Install dependencies
 
 pip install -r requirements.txt
 
-3\. Build the training dataset
+5\. Build the training dataset
 
 python build\_training\_dataset.py
 
-4\. Train the final model
+6\. Train the final model
 
 python train\_final\_model.py
 
-5\. Enter the race information
+7\. Enter race information
 
 
 
@@ -360,41 +388,53 @@ race\_input.csv
 
 
 
-with the drivers, constructors, circuit, grid positions and qualifying positions for the race.
+with:
 
 
 
-6\. Generate a prediction
+Driver
+
+Constructor
+
+Circuit
+
+Grid position
+
+Qualifying position
+
+8\. Generate a prediction
 
 python predict\_race.py
 
 
 
-The predicted result is saved to:
+The resulting prediction is written to:
 
 
 
 race\_prediction.csv
 
-🛠️ Technologies
-
-Python
-
-pandas
-
-NumPy
-
-scikit-learn
-
-Random Forest
-
-Git / GitHub
-
-📌 Limitations
+🎯 Project Goals
 
 
 
-Formula 1 races contain unpredictable events that are difficult to model from pre-race information alone.
+This project was built to explore how machine learning can be applied to a sport where race outcomes depend on both measurable historical patterns and unpredictable events.
+
+
+
+The focus was not simply on creating a model, but on building a complete pipeline:
+
+
+
+Data → Features → Validation → Model → Prediction → Real-world Test
+
+
+
+⚠️ Limitations
+
+
+
+Formula 1 contains events that cannot reliably be predicted from pre-race information alone.
 
 
 
@@ -418,11 +458,41 @@ Race incidents
 
 
 
-Therefore, the model should be interpreted as a statistical prediction of expected race performance rather than a guaranteed race result.
+Because of this, the model should be treated as a statistical prediction system, not a guaranteed race-result generator.
 
 
 
-👤 Author
+🔮 Future Improvements
+
+
+
+Potential improvements include:
+
+
+
+Weather data
+
+Practice-session performance
+
+Tyre compounds and strategy
+
+Sector and lap-time data
+
+Pit-stop performance
+
+Separate DNF prediction
+
+Additional machine-learning models
+
+Larger chronological validation sets
+
+Interactive web interface
+
+Live race prediction dashboard
+
+<div align="center">
+
+🏎️ Built with Python \& Machine Learning
 
 
 
@@ -430,5 +500,9 @@ Muzzammil Siddiqi
 
 
 
-GitHub: @MuzzammilSidd
+GitHub
+
+
+
+</div> ```
 
