@@ -1,4 +1,4 @@
-<div align="center">
+<div>
 
 
 
@@ -24,8 +24,6 @@ constructor performance, and circuit history.
 
 <img src="https://img.shields.io/badge/Model-Random%20Forest-2E8B57">
 
-<img src="https://img.shields.io/badge/Status-Working-success">
-
 </p>
 
 
@@ -34,7 +32,7 @@ constructor performance, and circuit history.
 
 
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code\&size=18\&duration=3000\&pause=1000\&center=true\&vCenter=true\&width=750\&lines=Qualifying+%E2%86%92+Feature+Engineering+%E2%86%92+Machine+Learning;Historical+F1+Data+%E2%86%92+Race+Prediction;Built+with+Python+%26+scikit-learn" alt="Typing Animation">
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code\&size=18\&duration=3000\&pause=1000\&vCenter=true\&width=750\&lines=Qualifying+%E2%86%92+Feature+Engineering+%E2%86%92+Machine+Learning;Historical+F1+Data+%E2%86%92+Race+Prediction;Built+with+Python+%26+scikit-learn" alt="Typing Animation">
 
 
 
@@ -178,15 +176,11 @@ The Spanish GP was then supplied only with information available before the race
 
 
 
-<div align="center">
-
-
+<p>
 
 <strong>Driver \&nbsp;•\&nbsp; Constructor \&nbsp;•\&nbsp; Circuit \&nbsp;•\&nbsp; Grid \&nbsp;•\&nbsp; Qualifying</strong>
 
-
-
-</div>
+</p>
 
 
 
@@ -252,29 +246,27 @@ The actual race result was kept hidden until after the prediction was generated.
 
 
 
-<div align="center">
-
-
-
-<h3>🎯 77.8%</h3>
+<h3>🎯 77.8% Within ±2 Positions</h3>
 
 
 
 <p>
 
-of classified drivers were predicted within two finishing positions of their actual result.
+The model predicted <strong>77.8%</strong> of classified drivers within two finishing
+
+positions of their actual result.
 
 </p>
 
 
 
-</div>
-
-
-
 <p>
 
-<sub>The four race retirements were excluded from this particular evaluation.</sub>
+<sub>
+
+The four race retirements were excluded from this particular evaluation.
+
+</sub>
 
 </p>
 
@@ -288,11 +280,17 @@ of classified drivers were predicted within two finishing positions of their act
 
 
 
-<h3>Random Forest Regressor</h3>
+<h3>🌲 Random Forest Regressor</h3>
 
 
 
-<p>The final production model uses:</p>
+<p>
+
+The production model is a Random Forest regression model trained on
+
+<strong>2,124 driver-race records</strong> using <strong>13 engineered features</strong>.
+
+</p>
 
 
 
@@ -300,7 +298,7 @@ of classified drivers were predicted within two finishing positions of their act
 
 <tr>
 
-<th>Parameter</th>
+<th>⚙️ Configuration</th>
 
 <th>Value</th>
 
@@ -308,7 +306,7 @@ of classified drivers were predicted within two finishing positions of their act
 
 <tr>
 
-<td>🌲 Trees</td>
+<td>🌲 Number of Trees</td>
 
 <td><strong>400</strong></td>
 
@@ -358,13 +356,31 @@ of classified drivers were predicted within two finishing positions of their act
 
 
 
-<p>
+<br>
+
+
+
+<table>
+
+<tr>
+
+<td><strong>Why Random Forest?</strong></td>
+
+</tr>
+
+<tr>
+
+<td>
 
 Random Forest was selected after chronological validation against alternative
 
-regression approaches.
+regression approaches during development.
 
-</p>
+</td>
+
+</tr>
+
+</table>
 
 
 
@@ -472,15 +488,7 @@ Historical Formula 1 data currently covers:
 
 
 
-<div align="center">
-
-
-
 <h3>2022 → 2026 Italian Grand Prix</h3>
-
-
-
-</div>
 
 
 
@@ -530,11 +538,13 @@ The Spanish Grand Prix was intentionally excluded from training for the blind-te
 
 
 
-<div align="center">
+<p>
 
+The prediction system transforms historical race data into a predicted finishing order
 
+through a sequence of data-processing and machine-learning stages.
 
-<h3>🏎️ From Historical Data to Race Prediction</h3>
+</p>
 
 
 
@@ -542,15 +552,11 @@ The Spanish Grand Prix was intentionally excluded from training for the blind-te
 
 <tr>
 
-<td align="center"><strong>🏁 Historical F1 Data</strong></td>
+<th>Stage</th>
 
-<td>→</td>
+<th>Process</th>
 
-<td align="center"><strong>🧹 Data Cleaning</strong></td>
-
-<td>→</td>
-
-<td align="center"><strong>⚙️ Feature Engineering</strong></td>
+<th>Output</th>
 
 </tr>
 
@@ -558,15 +564,11 @@ The Spanish Grand Prix was intentionally excluded from training for the blind-te
 
 <tr>
 
-<td align="center">↓</td>
+<td><strong>01</strong></td>
 
-<td></td>
+<td>🏁 Historical F1 Data</td>
 
-<td align="center">↓</td>
-
-<td></td>
-
-<td align="center">↓</td>
+<td>Clean race records</td>
 
 </tr>
 
@@ -574,15 +576,11 @@ The Spanish Grand Prix was intentionally excluded from training for the blind-te
 
 <tr>
 
-<td align="center"><strong>📊 Historical Driver / Constructor / Circuit Features</strong></td>
+<td><strong>02</strong></td>
 
-<td>→</td>
+<td>🧹 Data Cleaning</td>
 
-<td align="center"><strong>🌲 Random Forest</strong></td>
-
-<td>→</td>
-
-<td align="center"><strong>🏎️ Qualifying + Grid</strong></td>
+<td>Structured driver-race data</td>
 
 </tr>
 
@@ -590,15 +588,11 @@ The Spanish Grand Prix was intentionally excluded from training for the blind-te
 
 <tr>
 
-<td align="center">↓</td>
+<td><strong>03</strong></td>
 
-<td></td>
+<td>⚙️ Feature Engineering</td>
 
-<td align="center">↓</td>
-
-<td></td>
-
-<td align="center">↓</td>
+<td>13 model features</td>
 
 </tr>
 
@@ -606,33 +600,71 @@ The Spanish Grand Prix was intentionally excluded from training for the blind-te
 
 <tr>
 
-<td align="center"><strong>📈 Position Change</strong></td>
+<td><strong>04</strong></td>
 
-<td>→</td>
+<td>📊 Historical Driver / Constructor / Circuit Analysis</td>
 
-<td align="center"><strong>🏁 Estimated Finish</strong></td>
-
-<td>→</td>
-
-<td align="center"><strong>🏆 Predicted Race Order</strong></td>
+<td>Pre-race performance signals</td>
 
 </tr>
+
+
+
+<tr>
+
+<td><strong>05</strong></td>
+
+<td>🌲 Random Forest</td>
+
+<td>Predicted position change</td>
+
+</tr>
+
+
+
+<tr>
+
+<td><strong>06</strong></td>
+
+<td>🏎️ Qualifying + Grid Information</td>
+
+<td>Race-specific input</td>
+
+</tr>
+
+
+
+<tr>
+
+<td><strong>07</strong></td>
+
+<td>📈 Position Change → Estimated Finish</td>
+
+<td>Estimated finishing position</td>
+
+</tr>
+
+
+
+<tr>
+
+<td><strong>08</strong></td>
+
+<td>🏆 Race Ranking</td>
+
+<td>Predicted race order</td>
+
+</tr>
+
+
 
 </table>
 
 
 
-</div>
+<p>
 
-
-
-<p align="center">
-
-<sub>
-
-Historical patterns → engineered features → machine learning → race prediction
-
-</sub>
+<strong>Historical Data → Features → Random Forest → Position Change → Finishing Position → Race Order</strong>
 
 </p>
 
@@ -992,10 +1024,6 @@ not a guaranteed race-result generator.
 
 
 
-<div align="center">
-
-
-
 <h2>🏎️ Built with Python \& Machine Learning</h2>
 
 
@@ -1008,17 +1036,17 @@ not a guaranteed race-result generator.
 
 
 
+<p>
+
 <a href="https://github.com/MuzzammilSidd">GitHub Profile</a>
 
+</p>
 
 
-<br><br>
+
+<br>
 
 
 
 <img src="https://capsule-render.vercel.app/api?type=waving\&color=0:0f172a,100:2563eb\&height=100\&section=footer">
-
-
-
-</div>
 
