@@ -1,154 +1,70 @@
-<div align="center">
+🏎️ F1 Race Predictor
 
+Machine Learning for Formula 1 Race Finishing Positions
 
 
-\# 🏎️ F1 Race Predictor
 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code\&size=18\&duration=3000\&pause=1000\&center=true\&vCenter=true\&width=650\&lines=Qualifying+%E2%86%92+Features+%E2%86%92+Machine+Learning+%E2%86%92+Race+Prediction;Predicting+F1+finishing+positions+with+historical+data;Built+with+Python+%26+scikit-learn" alt="Typing animation">
 
+🏁 Overview
 
-\### Machine Learning for Formula 1 Race Finishing Positions
 
 
+F1 Race Predictor is a machine-learning project designed to predict Formula 1 race finishing positions using information available before the race.
 
-Predicting race performance from qualifying, grid position, driver history, constructor performance, and circuit history.
 
 
+The model combines qualifying performance, starting grid position, recent driver performance, constructor performance, and circuit history.
 
-<br>
 
 
+Instead of predicting the finishing position directly, the model predicts how many positions a driver is expected to gain or lose from their starting grid position.
 
-!\[Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
 
-!\[scikit-learn](https://img.shields.io/badge/scikit--learn-Random%20Forest-F7931E?style=for-the-badge\&logo=scikit-learn\&logoColor=white)
 
-!\[pandas](https://img.shields.io/badge/pandas-Data%20Analysis-150458?style=for-the-badge\&logo=pandas\&logoColor=white)
+⚡ Features
 
-!\[Status](https://img.shields.io/badge/Status-Working-2ea44f?style=for-the-badge)
+🏎️ Historical Formula 1 data processing
 
+📊 Automated feature engineering
 
+🧠 Random Forest regression
 
-</div>
+🏁 Race finishing-order prediction
 
+📈 Driver and constructor performance analysis
 
+🌍 Circuit-specific historical features
 
-\---
+🧪 Chronological model validation
 
-
-
-\## ⚡ Overview
-
-
-
-\*\*F1 Race Predictor\*\* is a machine-learning project that predicts the finishing order of a Formula 1 race using information available before the race begins.
-
-
-
-Instead of predicting finishing position directly, the model predicts:
-
-
-
-> \*\*Position Change = Grid Position − Finishing Position\*\*
-
-
-
-The predicted position change is then converted into an estimated finishing position and ranked across the field.
-
-
-
-The final model uses a \*\*Random Forest Regressor\*\* trained on historical Formula 1 data.
-
-
-
-\---
-
-
-
-\## 🧠 How It Works
-
-
-
-```text
-
-Historical F1 Data
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;  Data Cleaning
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;Feature Engineering
-
-&#x20;       │
-
-&#x20;       ▼
-
-Driver / Constructor / Circuit History
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20; Random Forest Model
-
-&#x20;       │
-
-&#x20;       ▼
-
-Qualifying + Grid Information
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;Predicted Position Change
-
-&#x20;       │
-
-&#x20;       ▼
-
-Estimated Finishing Position
-
-&#x20;       │
-
-&#x20;       ▼
-
-&#x20;  Predicted Race Order
+🔬 Blind historical race testing
 
 📊 Blind Test — 2026 Spanish GP
 
 
 
-One of the main goals of the project was to test the model on a race it had never seen during training.
+The model was deliberately trained without the 2026 Spanish Grand Prix.
 
 
 
-For this experiment:
+Training data ended with the 2026 Italian Grand Prix.
 
 
 
-Training data ended at the 2026 Italian Grand Prix
+The Spanish GP was then supplied only with information available before the race:
 
-The Spanish Grand Prix was excluded from training
 
-Only pre-race information was supplied
 
-The actual Spanish race result was hidden from the model
+Driver · Constructor · Circuit · Grid · Qualifying
 
-The prediction was generated before comparing it with the real result
+
+
+The actual race result was kept hidden until after the prediction was generated.
+
+
 
 Results
-
-
-
-Using the evaluation convention that excludes the four drivers who retired:
-
-
 
 Metric	Result
 
@@ -160,45 +76,41 @@ Mean Absolute Error	1.83 positions
 
 RMSE	2.37 positions
 
-Exact position	11.1%
+
+
+🎯 77.8% of classified drivers were predicted within two finishing positions of their actual result.
 
 
 
-77.8% of classified drivers were predicted within two finishing positions of their actual result.
+The four race retirements were excluded from this particular evaluation.
 
 
 
-This is a single blind historical test and should not be interpreted as the model's general long-term accuracy.
-
-
-
-🏁 Model
-
-
-
-The final production model is a:
-
-
+🧠 Model
 
 Random Forest Regressor
 
-Parameter	Value
 
-Trees	400
 
-Maximum Depth	8
-
-Maximum Features	sqrt
-
-Minimum Samples per Leaf	1
-
-Minimum Samples per Split	2
-
-Random State	42
+The final model uses:
 
 
 
-Random Forest was selected after comparing multiple regression approaches using chronological validation.
+🌲 400 trees
+
+📏 Maximum depth: 8
+
+🎲 Random state: 42
+
+🔀 Maximum features: sqrt
+
+📦 Minimum samples per leaf: 1
+
+📦 Minimum samples per split: 2
+
+
+
+Random Forest was selected after chronological validation against alternative regression approaches.
 
 
 
@@ -206,7 +118,7 @@ Random Forest was selected after comparing multiple regression approaches using 
 
 
 
-The model uses 13 features covering pre-race information and historical performance.
+The model uses 13 engineered features covering qualifying performance, recent performance, constructor performance, and circuit history.
 
 
 
@@ -218,7 +130,7 @@ Qualifying position
 
 Qualifying-to-grid gap
 
-Recent Driver \& Constructor Performance
+Recent Performance
 
 Recent average finishing position
 
@@ -232,7 +144,7 @@ Recent average constructor finishing position
 
 Recent average constructor qualifying position
 
-Circuit \& Position-Change History
+Circuit \& Position History
 
 Driver circuit history
 
@@ -244,7 +156,7 @@ Recent average position change
 
 
 
-Historical features are calculated using previous races, preventing information from the current race from being used as an input.
+Historical features are calculated using previous races so that information from the current race is not used as an input.
 
 
 
@@ -252,57 +164,121 @@ Historical features are calculated using previous races, preventing information 
 
 
 
-The project uses historical Formula 1 race data covering:
+Historical Formula 1 data covers:
 
 
 
-2022
+2022 → 2026 Italian Grand Prix
 
-2023
 
-2024
 
-2025
-
-2026 through the Italian Grand Prix
-
-Training Dataset
+The training dataset contains:
 
 
 
 2,124 driver-race records
 
-
-
 105 races
-
-
 
 13 model features
 
 
 
-The Spanish Grand Prix was intentionally excluded from the training data for the blind-test experiment.
+The Spanish Grand Prix was intentionally excluded from training for the blind-test experiment.
+
+
+
+🔄 Prediction Pipeline
+
+
+
+The system follows a simple pipeline:
+
+
+
+Historical F1 Data
+
+
+
+↓
+
+
+
+Data Cleaning
+
+
+
+↓
+
+
+
+Feature Engineering
+
+
+
+↓
+
+
+
+Driver / Constructor / Circuit History
+
+
+
+↓
+
+
+
+Random Forest Model
+
+
+
+↓
+
+
+
+Qualifying + Grid Information
+
+
+
+↓
+
+
+
+Predicted Position Change
+
+
+
+↓
+
+
+
+Estimated Finishing Position
+
+
+
+↓
+
+
+
+Predicted Race Order
 
 
 
 🛠️ Tech Stack
 
-Technology	Purpose
+🐍 Python — Core development
 
-Python	Core programming
+🐼 pandas — Data processing
 
-pandas	Data processing
+🔢 NumPy — Numerical operations
 
-NumPy	Numerical operations
+🤖 scikit-learn — Machine learning
 
-scikit-learn	Machine learning
+🌲 Random Forest — Prediction model
 
-Random Forest	Final prediction model
+🔧 Git — Version control
 
-Git	Version control
-
-GitHub	Project hosting
+☁️ GitHub — Project hosting
 
 📁 Project Structure
 
@@ -342,7 +318,7 @@ F1-Race-Predictor/
 
 └── README.md
 
-🚀 Run the Project
+🚀 Run Locally
 
 1\. Clone the repository
 
@@ -354,7 +330,7 @@ cd F1-Race-Predictor
 
 python -m venv .venv
 
-3\. Activate it
+3\. Activate the environment
 
 
 
@@ -372,7 +348,7 @@ pip install -r requirements.txt
 
 python build\_training\_dataset.py
 
-6\. Train the final model
+6\. Train the model
 
 python train\_final\_model.py
 
@@ -380,15 +356,7 @@ python train\_final\_model.py
 
 
 
-Update:
-
-
-
-race\_input.csv
-
-
-
-with:
+Update race\_input.csv with:
 
 
 
@@ -408,33 +376,17 @@ python predict\_race.py
 
 
 
-The resulting prediction is written to:
+The predicted race order is saved to:
 
 
 
 race\_prediction.csv
 
-🎯 Project Goals
-
-
-
-This project was built to explore how machine learning can be applied to a sport where race outcomes depend on both measurable historical patterns and unpredictable events.
-
-
-
-The focus was not simply on creating a model, but on building a complete pipeline:
-
-
-
-Data → Features → Validation → Model → Prediction → Real-world Test
-
-
-
 ⚠️ Limitations
 
 
 
-Formula 1 contains events that cannot reliably be predicted from pre-race information alone.
+Formula 1 contains unpredictable events that cannot always be inferred from pre-race information.
 
 
 
@@ -458,11 +410,11 @@ Race incidents
 
 
 
-Because of this, the model should be treated as a statistical prediction system, not a guaranteed race-result generator.
+The model should therefore be viewed as a statistical prediction system, not a guaranteed race-result generator.
 
 
 
-🔮 Future Improvements
+🔮 Future Development
 
 
 
@@ -470,39 +422,35 @@ Potential improvements include:
 
 
 
-Weather data
+🌦️ Weather information
 
-Practice-session performance
+🛞 Tyre compounds and strategy
 
-Tyre compounds and strategy
+⏱️ Practice and sector times
 
-Sector and lap-time data
+🔧 Pit-stop performance
 
-Pit-stop performance
+🚨 Dedicated DNF prediction
 
-Separate DNF prediction
+🤖 Additional machine-learning models
 
-Additional machine-learning models
+📊 Larger chronological validation
 
-Larger chronological validation sets
+🌐 Interactive web interface
 
-Interactive web interface
-
-Live race prediction dashboard
-
-<div align="center">
-
-🏎️ Built with Python \& Machine Learning
+📡 Live race prediction dashboard
 
 
+
+🏎️ Built with Python • pandas • scikit-learn
+
+
+
+👤 Author
 
 Muzzammil Siddiqi
 
 
 
-GitHub
 
-
-
-</div> ```
 
