@@ -1010,14 +1010,6 @@ not a guaranteed race-result generator.
 
 
 
-<h2>🏎️ Built with Python \&amp; Machine Learning</h2>
-
-
-
-<hr>
-
-
-
 <h2>👤 Author</h2>
 
 
