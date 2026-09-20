@@ -246,25 +246,11 @@ The actual race result was kept hidden until after the prediction was generated.
 
 
 
-<h3>🎯 77.8% Within ±2 Positions</h3>
-
-
-
-<p>
-
-The model predicted <strong>77.8%</strong> of classified drivers within two finishing
-
-positions of their actual result.
-
-</p>
-
-
-
 <p>
 
 <sub>
 
-The four race retirements were excluded from this particular evaluation.
+NOTE: The four race retirements in the actual 2026 Spanish GP were excluded from this particular evaluation.
 
 </sub>
 
