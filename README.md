@@ -256,6 +256,14 @@ The actual race result was kept hidden until after the prediction was generated.
 
 </p>
 
+<h3>🏎️ Predicted Race Output</h3>
+
+<p>
+The model-generated finishing order for the blind-test race is shown below.
+</p>
+
+<img src="images/predicted_result_output.png" alt="Predicted Race Result">
+
 
 
 <hr>
