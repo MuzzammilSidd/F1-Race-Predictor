@@ -2,7 +2,7 @@
 
 
 
-<h1>🏎️ F1 Race Result Predictor</h1>
+<h1>🏎️ F1 Race Outcome Predictor</h1>
 
 
 
